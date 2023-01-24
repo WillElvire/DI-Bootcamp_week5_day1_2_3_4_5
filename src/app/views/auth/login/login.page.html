@@ -13,9 +13,9 @@
     <ion-card mode="ios">
       <ion-card-content>
         <ion-label>Email</ion-label>
-        <ion-input name="email" [(ngModel)]="loginPayload.email"></ion-input>
+        <ion-input type="email" required="true" name="email" [(ngModel)]="loginPayload.email"></ion-input>
         <ion-label>Password</ion-label>
-        <ion-input [(ngModel)]="loginPayload.password" name="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="loginPayload.password" name="password"></ion-input>
         <ion-button expand="full" shape="round" mode="ios" (click)="login()" color="warning"> Se connecter</ion-button>
       </ion-card-content>
     </ion-card>

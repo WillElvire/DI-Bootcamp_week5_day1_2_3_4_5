@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { AppFacade } from 'src/app/core/facades/app.facade';
 import { User } from 'src/app/core/interfaces/user';
 import { v4 as uuidv4 } from 'uuid';
@@ -18,9 +19,10 @@ export class RegisterPage implements OnInit {
    email    : '',
    id       : uuidv4()
   }
-  constructor(private appFacade : AppFacade , private router: Router) { }
+  constructor(private appFacade : AppFacade , private router: Router , private menuController : MenuController) { }
 
   ngOnInit() {
+    this.menuController.close()
   }
 
   register(){

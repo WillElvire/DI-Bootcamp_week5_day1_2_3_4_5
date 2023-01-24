@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { AppFacade } from 'src/app/core/facades/app.facade';
 
 @Component({
@@ -7,15 +8,20 @@ import { AppFacade } from 'src/app/core/facades/app.facade';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage implements OnInit , AfterViewInit , OnDestroy {
 
   loginPayload : {email : string , password : string } = {
     password : '',
     email    : '',
    }
-   constructor(private appFacade : AppFacade , private router: Router) { }
+   constructor(private appFacade : AppFacade , private router: Router , private menuController : MenuController) { }
 
    ngOnInit() {
+
+   }
+
+   ngAfterViewInit(): void {
+    this.menuController.close();
    }
 
   async login(){
@@ -35,6 +41,10 @@ export class LoginPage implements OnInit {
      for(let index of errorTable) {
        this.appFacade.buildError(`veuillez renseigner votre ${Object.keys(this.loginPayload)[index]}`)
      }
+   }
+
+   ngOnDestroy(): void {
+    this.menuController.close();
    }
 
 }

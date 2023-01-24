@@ -12,11 +12,11 @@
     <ion-card mode="ios">
       <ion-card-content>
         <ion-label>username</ion-label>
-        <ion-input [(ngModel)]="user.username" name="username"></ion-input>
+        <ion-input type="text" [(ngModel)]="user.username" name="username"></ion-input>
         <ion-label>email</ion-label>
-        <ion-input [(ngModel)]="user.email" name="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
         <ion-label>Password</ion-label>
-        <ion-input [(ngModel)]="user.password" name="password"></ion-input>
+        <ion-input  type="password" [(ngModel)]="user.password" name="password"></ion-input>
         <ion-button expand="full" shape="round" mode="ios" (click)="register()" color="warning"> S'inscrire</ion-button>
       </ion-card-content>
     </ion-card>

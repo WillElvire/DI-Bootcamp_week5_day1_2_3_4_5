@@ -14,7 +14,6 @@ export class  VerificationService {
   }
 
   verifyObj(obj : {},logType : string = "error") {
-    let response;
     let count= 0;
     let index : number[] = [];
 

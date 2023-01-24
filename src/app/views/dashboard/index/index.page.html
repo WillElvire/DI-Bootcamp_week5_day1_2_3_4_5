@@ -1,14 +1,30 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Liste</ion-title>
+    <ion-buttons>
+      <ion-back-button defaultHref="/auth/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title mode="ios">Liste <ion-badge color="danger">{{users.length}}</ion-badge></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let user of users" mode="ios">
-    <ion-card-content>
-      <p>Username : {{user?.username}}</p>
-      <p>Email : {{user?.email}}</p>
-    </ion-card-content>
-  </ion-card>
+  <ion-spinner name="lines-small" class="ion-center" style="color : white" *ngIf="users.length === 0"></ion-spinner>
+  <div class="user-list" *ngIf="users.length > 0">
+    <ion-card *ngFor="let user of users" mode="ios" >
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="2">
+              <ion-icon name="person" style="font-size: 35px;" color="danger"></ion-icon>
+            </ion-col>
+            <ion-col size="10">
+              <p>Username : {{user?.username}}</p>
+              <p>Email : {{user?.email}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
